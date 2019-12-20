@@ -1,0 +1,25 @@
+1. Single Responsibility Principle
+One class should have one and only one responsibility. In other words, we should write, change and maintain a class for only one purpose. If it is model class then it should strictly represent only one actor/ entity. This will give us the flexibility to make changes in future without worrying the impacts of changes for another entity.
+Similarly, if we are writing service/manager class then it should contain only that part of method calls and nothing else. Not even utility global functions related to module. Better separate them in another globally accessible class file. This will help in maintaining the class for that particular purpose, and we can decide the visibility of class to specific module only.
+1.1. Single Responsibility Principle Example
+We can find plenty of classes in all popular Java libraries which follow single responsibility principle. For example, in log4j, we have different classes with logging methods; different classes are logging levels and so on.
+In our application level code, we define model classes to represent real time entities such as person, employee, account etc. Most of these classes are examples of SRP principle because when we need to change the state of a person, only then we will modify a person class. And so on.
+In given example, we have two classes Person and Account. Both have single responsibility to store their specific information. If we want to change state of Person then we do not need to modify the class Account and vice-versa.
+Person.java
+public class Person 
+{
+    private Long personId;
+    private String firstName;
+    private String lastName;
+    private String age;
+    private List<Account> accounts;
+}
+Account.java
+public class Account 
+{
+    private Long guid;
+    private String accountNumber;
+    private String accountName;
+    private String status;
+    private String type;
+}
