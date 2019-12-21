@@ -1,0 +1,43 @@
+Git Basic Commands
+
+Git init
+git init will create a new local GIT repository. The following Git command will create a repository in the current directory:
+git init
+
+git Clone
+git clone is used to copy a repository. If the repository lies on a remote server, use:
+git clone username@host:/path/to/repository
+Conversely, run the following basic Git command to copy a local repository:
+
+git clone /path/to/repository
+
+Git commit
+git commit will create a snapshot of the changes and save it to the git directory.
+git commit –m “Message to go with the commit here”
+
+Git Push
+git push is used to send local commits to the master branch of the remote repository. Here’s the basic code structure:
+git push origin <master>
+
+Git Pull
+git pull merges all the changes present in the remote repository to the local working directory.
+git pull
+
+Git Merge
+git merge is used to merge a branch into the active one.
+git merge <branch-name>
+
+Git Branch
+git branch will list, create, or delete branches. For instance, if you want to list all the branches present in the repository, 
+the command should look like this:
+git branch
+
+Git Config
+git config can be used to set user-specific configuration values like email, username, file format, and so on. To illustrate, the command 
+for setting up an email will look like this:
+git config --global user.email youremail@example.com
+
+Git Fetch
+git fetch allows users to fetch all objects from the remote repository that don’t currently reside in the local working directory.
+git fetch origin
+
