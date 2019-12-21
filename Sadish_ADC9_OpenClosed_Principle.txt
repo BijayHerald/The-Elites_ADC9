@@ -1,0 +1,7 @@
+Open-Close Principle states that “Software entities (classes, modules, functions, etc.) should be open for extension, but closed for modification.”
+
+That means an entity allows its behavior to be extended but never by modifying its source code. Any class (or whatever we write) should be written in such a way that it can be used as is. It can be extended if need be, but it can never be modified. 
+
+ We can consider this when we are writing classes. We can use the class in any way we need, but modifying its behavior comes by adding new code, never by modifying the old. The same principle can be applied to modules, packages, and libraries.
+
+By applying the open-closed principle we will get a loose coupling, we will improve readability and, finally, we will be reducing the risk of breaking existing functionality.
