@@ -5,3 +5,159 @@ That means an entity allows its behavior to be extended but never by modifying i
  We can consider this when we are writing classes. We can use the class in any way we need, but modifying its behavior comes by adding new code, never by modifying the old. The same principle can be applied to modules, packages, and libraries.
 
 By applying the open-closed principle we will get a loose coupling, we will improve readability and, finally, we will be reducing the risk of breaking existing functionality.
+
+
+
+
+
+
+
+--------------------Example------------------------
+
+
+Total area of rectangle
+
+---------------------
+public class Rectangle
+{
+    public double Width { get; set; }
+    public double Height { get; set; }
+}
+---------------------
+
+Calculating the total area of rectangle
+
+---------------------
+
+public class AreaCalculator
+{
+    public double Area(Rectangle[] shapes)
+    {
+        double area = 0;
+        foreach (var shape in shapes)
+        {
+            area += shape.Width*shape.Height;
+        }
+
+        return area;
+    }
+}
+
+-----------------------
+
+
+If we want to add the area of circle in the above code then we have
+
+
+-----------------------
+
+public double Area(object[] shapes)
+{
+    double area = 0;
+    foreach (var shape in shapes)
+    {
+        if (shape is Rectangle)
+        {
+            Rectangle rectangle = (Rectangle) shape;
+            area += rectangle.Width*rectangle.Height;
+        }
+        else
+        {
+            Circle circle = (Circle)shape;
+            area += circle.Radius * circle.Radius * Math.PI;
+        }
+    }
+
+    return area;
+}
+
+------------------------
+
+
+
+A solution that abides by the Open/Closed Principle.
+Let see the best example
+
+----------------------
+
+public abstract class Shape
+{
+    public abstract double Area();
+}
+
+----------------------
+
+
+
+
+
+
+
+Inheriting from Shape the Rectangle and Circle classes now looks like this:
+
+---------------------
+
+public class Rectangle : Shape
+{
+    public double Width { get; set; }
+    public double Height { get; set; }
+    public override double Area()
+    {
+        return Width*Height;
+    }
+}
+
+public class Circle : Shape
+{
+    public double Radius { get; set; }
+    public override double Area()
+    {
+        return Radius*Radius*Math.PI;
+    }
+}
+
+-------------------
+
+
+
+As we’ve moved the responsibility of actually calculating the area away
+ from AreaCalculator’s Area method it is now much simpler
+
+-------------------
+
+public double Area(Shape[] shapes)
+{
+    double area = 0;
+    foreach (var shape in shapes)
+    {
+        area += shape.Area();
+    }
+
+    return area;
+}
+
+--------------------
+
+In other words we’ve closed it for modification by opening it up for extension.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
