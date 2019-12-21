@@ -1,0 +1,76 @@
+Add files
+--Add one or more files to staging (index):	
+--git add <filename>
+
+
+
+Commit
+--Commit changes to head (but not yet to the remote repository):	
+--git commit -m "Commit message"
+
+
+Push	
+--Send changes to the master branch of your remote repository:	
+--git push origin master
+
+
+Status	
+--List the files you've changed and those you still need to add or commit:	
+--git status
+
+
+Connect to a remote repository	
+--If you haven't connected your local repository to a remote server, add the server to be able to push to it:
+--git remote add origin <server>
+
+
+Branches	
+--Create a new branch and switch to it:	
+--git checkout -b <branchname>
+
+
+Update from the remote repository	
+--Fetch and merge changes on the remote server to your working directory:
+--git pull
+To merge a different branch into your active branch:	
+--git merge <branchname>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
